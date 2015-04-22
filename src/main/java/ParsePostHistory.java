@@ -35,13 +35,22 @@ public class ParsePostHistory {
 
                 Element eElement = (Element) nNode;
 
+                String id= eElement.getAttribute("Id");
+                if (id.isEmpty()) id=null;
+                String postHistoryTypeId= eElement.getAttribute("PostHistoryTypeId");
+                if (postHistoryTypeId.isEmpty()) postHistoryTypeId=null;
+                String postId= eElement.getAttribute("PostId");
+                if (postId.isEmpty()) postId=null;
+                String userId= eElement.getAttribute("UserId");
+                if (userId.isEmpty()) userId=null;
+
                 strings="INSERT INTO postHistory (id, postHistoryTypeId, postId, revisionGuid, creationDate, userId, userDisplayName, comment, text) VALUES " +
-                        "(" + eElement.getAttribute("Id") + "," +
-                        eElement.getAttribute("PostHistoryTypeId") + "," +
-                        eElement.getAttribute("PostId") + "," +
+                        "(" + id + "," +
+                        postHistoryTypeId + "," +
+                        postId + "," +
                         "'" + eElement.getAttribute("RevisionGuid") + "'," +
                         "'" + eElement.getAttribute("CreationDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
-                        eElement.getAttribute("UserId") + "," +
+                        userId + "," +
                         "'" + eElement.getAttribute("UserDisplayName") + "'," +
                         "'" + eElement.getAttribute("Comment").replace("'", "") + "'," +
                         "'" + eElement.getAttribute("Text").replace("'", "")  + "');\n";

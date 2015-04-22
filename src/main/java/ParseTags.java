@@ -38,11 +38,19 @@ public class ParseTags {
 
                 Element eElement = (Element) nNode;
 
+                String id= eElement.getAttribute("Id");
+                if (id.isEmpty()) id=null;
+                String count= eElement.getAttribute("Count");
+                if (count.isEmpty()) count=null;
+                String wikiPostId= eElement.getAttribute("WikiPostId");
+                if (wikiPostId.isEmpty()) wikiPostId=null;
+
+
                 strings="INSERT INTO tags (id, tagName, count, wikiPostId) VALUES " +
-                        "(" + eElement.getAttribute("Id") + "," +
+                        "(" + id + "," +
                         "'" + eElement.getAttribute("TagName") + "'," +
-                        eElement.getAttribute("Count") + "," +
-                        eElement.getAttribute("WikiPostId") + ");\n";
+                        count + "," +
+                        wikiPostId + ");\n";
 
                 myfile.write(strings);
 

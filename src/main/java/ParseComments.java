@@ -36,14 +36,23 @@ public class ParseComments {
 
                 Element eElement = (Element) nNode;
 
+                String id= eElement.getAttribute("Id");
+                if (id.isEmpty()) id=null;
+                String postId= eElement.getAttribute("PostId");
+                if (postId.isEmpty()) postId=null;
+                String score= eElement.getAttribute("Score");
+                if (score.isEmpty()) score=null;
+                String userId= eElement.getAttribute("UserId");
+                if (userId.isEmpty()) userId=null;
+
                 strings="INSERT INTO comments (id, postId, score, text, creationDate, userDisplayName, userId) VALUES " +
-                        "(" + eElement.getAttribute("Id") + "," +
-                        eElement.getAttribute("PostId") + "," +
-                        eElement.getAttribute("Score") + "," +
+                        "(" + id + "," +
+                        postId + "," +
+                        score + "," +
                         "'" + eElement.getAttribute("Text").replace("'", "") + "'," +
                         "'" + eElement.getAttribute("CreationDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
                         "'" + eElement.getAttribute("UserDisplayName") + "'," +
-                        eElement.getAttribute("UserId")  + ");\n";
+                        userId  + ");\n";
 
                 myfile.write(strings);
 

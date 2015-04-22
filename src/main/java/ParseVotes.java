@@ -36,13 +36,25 @@ public class ParseVotes {
 
                 Element eElement = (Element) nNode;
 
+                String id= eElement.getAttribute("Id");
+                if (id.isEmpty()) id=null;
+                String postId= eElement.getAttribute("PostId");
+                if (postId.isEmpty()) postId=null;
+                String voteTypeId= eElement.getAttribute("VoteTypeId");
+                if (voteTypeId.isEmpty()) voteTypeId=null;
+                String userId= eElement.getAttribute("UserId");
+                if (userId.isEmpty()) userId=null;
+                String bountyAmount= eElement.getAttribute("BountyAmount");
+                if (bountyAmount.isEmpty()) bountyAmount=null;
+
+
                 strings="INSERT INTO votes (id, postId, voteTypeId, userId, creationDate, bountyAmount) VALUES " +
-                        "(" + eElement.getAttribute("Id") + "," +
-                        eElement.getAttribute("PostId") + "," +
-                        eElement.getAttribute("VoteTypeId") + "," +
-                        eElement.getAttribute("UserId") + "," +
+                        "(" + id + "," +
+                            postId + "," +
+                            voteTypeId + "," +
+                            userId + "," +
                         "'" + eElement.getAttribute("CreationDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
-                        eElement.getAttribute("BountyAmount") + ");\n";
+                            bountyAmount + ");\n";
 
                 myfile.write(strings);
 

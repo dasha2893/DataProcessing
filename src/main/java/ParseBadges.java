@@ -16,7 +16,7 @@ public class ParseBadges {
     public static void main(String[] args) throws Exception {
 
         String strings;
-        File file = new File("D:\\stackexchange\\Badges.xml");
+        File file = new File("C:\\Users\\user\\Downloads\\112010 Meta Stack Overflow\\Badges.xml");
 
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -37,9 +37,14 @@ public class ParseBadges {
 
                 Element eElement = (Element) nNode;
 
+                String id= eElement.getAttribute("Id");
+                if (id.isEmpty()) id=null;
+                String userId= eElement.getAttribute("UserId");
+                if (userId.isEmpty()) userId=null;
+
                 strings="INSERT INTO badges (id, userId, name, date) VALUES " +
-                        "(" + eElement.getAttribute("Id") + "," +
-                        eElement.getAttribute("UserId") + "," +
+                        "(" + id + "," +
+                          userId + "," +
                         "'" + eElement.getAttribute("Name") + "'," +
                         "'" + eElement.getAttribute("Date").replace("T", " ").replaceAll("\\.\\d{3}", "") + "');\n";
 

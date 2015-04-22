@@ -37,12 +37,21 @@ public class ParsePostLinks {
 
                 Element eElement = (Element) nNode;
 
+                String id= eElement.getAttribute("Id");
+                if (id.isEmpty()) id=null;
+                String postId= eElement.getAttribute("PostId");
+                if (postId.isEmpty()) postId=null;
+                String relatedPostId= eElement.getAttribute("RelatedPostId");
+                if (relatedPostId.isEmpty()) relatedPostId=null;
+                String linkTypeId= eElement.getAttribute("LinkTypeId");
+                if (linkTypeId.isEmpty()) linkTypeId=null;
+
                 strings="INSERT INTO postLinks (id, creationDate, postId, relatedPostId, linkTypeId) VALUES " +
-                        "(" + eElement.getAttribute("Id") + "," +
+                        "(" + id + "," +
                         "'" + eElement.getAttribute("CreationDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
-                        eElement.getAttribute("PostId") + "," +
-                        eElement.getAttribute("RelatedPostId") + "," +
-                        eElement.getAttribute("LinkTypeId") + ");\n";
+                        postId + "," +
+                        relatedPostId + "," +
+                        linkTypeId + ");\n";
 
                 myfile.write(strings);
 

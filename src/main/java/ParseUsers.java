@@ -35,22 +35,37 @@ public class ParseUsers {
 
                 Element eElement = (Element) nNode;
 
+                String id= eElement.getAttribute("Id");
+                if (id.isEmpty()) id=null;
+                String reputation= eElement.getAttribute("Reputation");
+                if (reputation.isEmpty()) reputation=null;
+                String views= eElement.getAttribute("Views");
+                if (views.isEmpty()) views=null;
+                String upVotes= eElement.getAttribute("UpVotes");
+                if (upVotes.isEmpty()) upVotes=null;
+                String downVotes= eElement.getAttribute("DownVotes");
+                if (downVotes.isEmpty()) downVotes=null;
+                String age= eElement.getAttribute("Age");
+                if (age.isEmpty()) age=null;
+                String accountId= eElement.getAttribute("AccountId");
+                if (accountId.isEmpty()) accountId=null;
+
                 strings="INSERT INTO users (id, reputation, creationDate, displayName, lastAccessDate, websiteUrl, location, aboutMe, views, upVotes, downVotes, profileImageUrl, emailHash, age, accountId) VALUES " +
-                                "(" + eElement.getAttribute("Id") + "," +
-                                eElement.getAttribute("Reputation") + "," +
+                                "(" + id + "," +
+                                    reputation + "," +
                                 "'" + eElement.getAttribute("CreationDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
                                 "'" + eElement.getAttribute("DisplayName") + "'," +
                                 "'" + eElement.getAttribute("LastAccessDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
                                 "'" + eElement.getAttribute("WebsiteUrl") + "'," +
                                 "'" + eElement.getAttribute("Location") + "'," +
                                 "'" + eElement.getAttribute("AboutMe").replace("'", "") + "'," +
-                                eElement.getAttribute("Views") + "," +
-                                eElement.getAttribute("UpVotes") + "," +
-                                eElement.getAttribute("DownVotes") + "," +
+                                    views + "," +
+                                    upVotes + "," +
+                                    downVotes + "," +
                                 "'" + eElement.getAttribute("profileImageUrl") + "'," +
                                 "'" + eElement.getAttribute("emailHash") + "'," +
-                                eElement.getAttribute("Age") + "," +
-                                eElement.getAttribute("AccountId") + ");\n";
+                                    age + "," +
+                                    accountId + ");\n";
 
                 myfile.write(strings);
 
