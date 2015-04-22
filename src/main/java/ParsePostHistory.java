@@ -46,11 +46,11 @@ public class ParsePostHistory {
 
                 strings="INSERT INTO postHistory (id, postHistoryTypeId, postId, revisionGuid, creationDate, userId, userDisplayName, comment, text) VALUES " +
                         "(" + id + "," +
-                        postHistoryTypeId + "," +
-                        postId + "," +
+                            postHistoryTypeId + "," +
+                            postId + "," +
                         "'" + eElement.getAttribute("RevisionGuid") + "'," +
                         "'" + eElement.getAttribute("CreationDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
-                        userId + "," +
+                            userId + "," +
                         "'" + eElement.getAttribute("UserDisplayName") + "'," +
                         "'" + eElement.getAttribute("Comment").replace("'", "") + "'," +
                         "'" + eElement.getAttribute("Text").replace("'", "")  + "');\n";

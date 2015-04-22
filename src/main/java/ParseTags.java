@@ -49,8 +49,8 @@ public class ParseTags {
                 strings="INSERT INTO tags (id, tagName, count, wikiPostId) VALUES " +
                         "(" + id + "," +
                         "'" + eElement.getAttribute("TagName") + "'," +
-                        count + "," +
-                        wikiPostId + ");\n";
+                            count + "," +
+                            wikiPostId + ");\n";
 
                 myfile.write(strings);
 

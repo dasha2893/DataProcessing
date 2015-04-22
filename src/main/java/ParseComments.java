@@ -47,12 +47,12 @@ public class ParseComments {
 
                 strings="INSERT INTO comments (id, postId, score, text, creationDate, userDisplayName, userId) VALUES " +
                         "(" + id + "," +
-                        postId + "," +
-                        score + "," +
+                            postId + "," +
+                            score + "," +
                         "'" + eElement.getAttribute("Text").replace("'", "") + "'," +
                         "'" + eElement.getAttribute("CreationDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
                         "'" + eElement.getAttribute("UserDisplayName") + "'," +
-                        userId  + ");\n";
+                            userId  + ");\n";
 
                 myfile.write(strings);
 

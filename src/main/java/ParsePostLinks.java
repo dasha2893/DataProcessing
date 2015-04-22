@@ -49,9 +49,9 @@ public class ParsePostLinks {
                 strings="INSERT INTO postLinks (id, creationDate, postId, relatedPostId, linkTypeId) VALUES " +
                         "(" + id + "," +
                         "'" + eElement.getAttribute("CreationDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
-                        postId + "," +
-                        relatedPostId + "," +
-                        linkTypeId + ");\n";
+                            postId + "," +
+                            relatedPostId + "," +
+                            linkTypeId + ");\n";
 
                 myfile.write(strings);
 

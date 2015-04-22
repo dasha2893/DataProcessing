@@ -62,24 +62,24 @@ public class ParsePosts {
 
                 strings="INSERT INTO posts (id, postTypeId, acceptedAnswerId, parentId, creationDate, score, viewCount, body, ownerUserId, ownerDisplayName, lastEditorUserId, lastEditorDisplayName, lastEditDate, lastActivityDate, title, tags, answerCount, commentCount, favoriteCount, closedDate, communityOwnedDate) VALUES " +
                         "(" + id + "," +
-                        postTypeId + "," +
-                        acceptedAnswerId + "," +
-                        parentId + "," +
+                            postTypeId + "," +
+                            acceptedAnswerId + "," +
+                            parentId + "," +
                         "'" + eElement.getAttribute("CreationDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
-                        score + "," +
-                        viewCount + "," +
+                            score + "," +
+                            viewCount + "," +
                         "'" + eElement.getAttribute("Body").replace("'", "") + "'," +
-                        ownerUserId + "," +
+                            ownerUserId + "," +
                         "'" + eElement.getAttribute("OwnerDisplayName") + "'," +
-                        lastEditorUserId + "," +
+                            lastEditorUserId + "," +
                         "'" + eElement.getAttribute("LastEditorDisplayName") + "'," +
                         "'" + eElement.getAttribute("LastEditDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
                         "'" + eElement.getAttribute("LastActivityDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "," +
                         "'" + eElement.getAttribute("Title").replace("'", "") + "'," +
                         "'" + eElement.getAttribute("Tags").replace("'", "") + "'," +
-                        answerCount + "," +
-                        commentCount + "," +
-                        favoriteCount + "," +
+                            answerCount + "," +
+                            commentCount + "," +
+                            favoriteCount + "," +
                         "'" + eElement.getAttribute("ClosedDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "'," +
                         "'" + eElement.getAttribute("CommunityOwnedDate").replace("T", " ").replaceAll("\\.\\d{3}", "") + "');\n";
 

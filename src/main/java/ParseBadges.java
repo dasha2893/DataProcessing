@@ -44,7 +44,7 @@ public class ParseBadges {
 
                 strings="INSERT INTO badges (id, userId, name, date) VALUES " +
                         "(" + id + "," +
-                          userId + "," +
+                              userId + "," +
                         "'" + eElement.getAttribute("Name") + "'," +
                         "'" + eElement.getAttribute("Date").replace("T", " ").replaceAll("\\.\\d{3}", "") + "');\n";
 
