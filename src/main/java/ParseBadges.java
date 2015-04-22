@@ -37,7 +37,7 @@ public class ParseBadges {
 
                 Element eElement = (Element) nNode;
 
-                strings="INSERT INTO comments (id, userId, name, date) VALUES " +
+                strings="INSERT INTO badges (id, userId, name, date) VALUES " +
                         "(" + eElement.getAttribute("Id") + "," +
                         eElement.getAttribute("UserId") + "," +
                         "'" + eElement.getAttribute("Name") + "'," +
